@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify Counter</title>
+    <style>
+        .notify-container{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .notify-content{
+            background: rgb(221, 228, 250);
+            padding: 3rem 4rem;
+            box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.4); 
+            border-radius: .5rem; 
+            transition: .4s ease; 
+            position: relative;         
+        }
+        .notify-content:hover{
+            background: none;
+        }
+        button{
+            display: inline-block;
+            padding: .8rem  2.2rem;
+            font-size: 1.2rem;
+            margin-top: .5rem;
+            color: royalblue;
+            border: 1px solid royalblue;
+            border-radius: .5rem;
+            transition: .4s ease;
+            cursor: pointer;
+        }
+        button:hover{
+            color: white;
+            background: royalblue;
+        }
+        .notify{
+            position: absolute;
+            display: block;
+            margin-top: -2rem;
+            right: 15%;
+            height: 4rem;
+            width: 4rem;
+            background: royalblue;   
+            border-radius: .5rem;
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;         
+        }
+    </style>
+</head>
+<body>
+    <div class="notify-container">
+        <div class="notify-content">
+            <div class="notify">1</div>
+            <img src="./message.svg" alt="">
+            <button>Start</button>
+        </div>
+    </div>
+    <script>   
+
+        let number = [1,2,3,4,5,6,7,8,9,10,11,12];
+        let count = 0; 
+ 
+       document.querySelector('button').addEventListener('click',()=>{
+        count++
+        document.querySelector('.notify').innerHTML = number[count] ;
+       })
+
+    </script>
+</body>
+</html>

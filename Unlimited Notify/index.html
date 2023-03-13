@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Counter</title>
+    <style>
+        .Notification-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        .Notification-container .div{
+            padding: 3rem 4rem;
+            background:rgb(255, 229, 234);
+            box-shadow: 0 0 .2rem rgba(0, 0, 0, 0.3);
+            border-radius: .5rem;
+            transition: .4s ease;
+            position: relative;
+        }
+        .Notification-container .div:hover{
+            background: none;
+        }
+        button{
+            padding: .8rem 1.2rem;
+            font-size: 1rem;
+            outline: none;
+            border: 1px solid crimson;
+            background: transparent;
+            margin-top: .5rem;
+            border-radius: .2rem;
+            color: crimson;
+            transition: .4s ease;
+            cursor: pointer;
+        }
+        button:hover{
+            background: crimson;
+            color: white;
+        }
+        .counter{
+            position: relative;
+            display: none;
+        }
+        .counter::before{
+            position: absolute;
+            background: crimson;
+            height: 3rem;            
+            width: 3rem;
+            border-radius: .5rem;
+            right: 0;   
+            content: attr(Notification-counter);  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;     
+            margin-top: -1rem;
+            font-size: 1.5rem;   
+            animation: Animate .9s ease-out infinite;      
+        }
+        @keyframes Animate {
+            0%{
+                transform: scale(1);
+            }  
+            100%{
+                transform:  scale(1.1);
+            }          
+        }
+    </style>
+</head>
+<body>
+    <div class="Notification-container">
+        <div class="div">
+            <div class="counter"></div>
+            <img src="./bell.svg" alt="">
+            <button>Let's Start</button>
+        </div>
+    </div>
+    
+
+    <script>
+        document.querySelector('button').addEventListener('click',()=>{
+            let plus = Number(document.querySelector('.counter').getAttribute('Notification-counter') || 0);
+
+            document.querySelector('.counter').setAttribute('Notification-counter', plus+1 );
+            document.querySelector('.counter').style.display='block';
+        })
+    </script>
+</body>
+</html>
